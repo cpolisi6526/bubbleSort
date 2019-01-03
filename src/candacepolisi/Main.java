@@ -3,6 +3,10 @@ package candacepolisi;
 public class Main {
 
     public static void bubbleSort(int[] arr) {
+        System.out.print("Before: ");
+        for(int a=0; a<arr.length;a++){
+            System.out.print(arr[a]);
+        }
         int temp;
         for (int x=0;x<50;x++) {
             for (int i = 0; i < arr.length-1; i++) {
@@ -13,6 +17,7 @@ public class Main {
                 }
             }
         }
+        System.out.print("    After: ");
         for(int a=0; a<arr.length;a++){
             System.out.print(arr[a]);
         }
