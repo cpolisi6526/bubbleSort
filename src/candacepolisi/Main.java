@@ -2,12 +2,11 @@ package candacepolisi;
 
 public class Main {
 
-    public static void bubbleSort(){
-        int arr[]= {8,6,7,5,3,0,9};
+    public static void bubbleSort(int[] arr) {
         int temp;
-        while(arr[0]<=arr[1] && arr[5]<=arr[6] && arr[3]<=arr[4] && arr[2]<=arr[3]) {
-            for (int i=0 ; i < arr.length; i++) {
-                if (arr[i] <= arr[i + i]) {
+        for (int x=0;x<50;x++) {
+            for (int i = 0; i < arr.length-1; i++) {
+                if (arr[i] >= arr[i + 1]) {
                     temp = arr[i];
                     arr[i] = arr[i + 1];
                     arr[i + 1] = temp;
@@ -18,7 +17,8 @@ public class Main {
             System.out.print(arr[a]);
         }
     }
+
     public static void main(String[] args) {
-        bubbleSort();
+        bubbleSort(new int[]{8, 6, 7, 5, 3, 0, 9});
     }
 }
