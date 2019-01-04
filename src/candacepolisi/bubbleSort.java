@@ -1,34 +1,34 @@
 package candacepolisi;
 
 public class bubbleSort {
-    public static void bubbleSort(int[] arr) {
-        System.out.print("Before: ");
-        for(int a=0; a<arr.length;a++){
-            System.out.print(arr[a]);
-        }
-        int temp;
-        boolean swap=true;
-        while(swap) {
-            swap=false;
-            for (int i = 0; i < arr.length-1; i++) {
-                if (arr[i] >= arr[i + 1]) {
-                    temp = arr[i];
-                    arr[i] = arr[i + 1];
-                    arr[i + 1] = temp;
-                    swap=true;
+
+    public static void swap(int arr[], int a, int b){
+        int temp=arr[a];
+        arr[a]=arr[b];
+        arr[b]=temp;
+    }
+
+    public static int[] bubbleSort(int[] arr) {
+        boolean s=true;
+        while (s){
+            s=false;
+            for(int a=0; a<arr.length-1;a++){
+                if(arr[a]>arr[a+1]){
+                    swap(arr,a,a+1);
+                    s=true;
                 }
             }
         }
-        System.out.print("    After: ");
-        for(int a=0; a<arr.length;a++){
-            System.out.print(arr[a]);
-        }
+        return arr;
     }
 
-    public static int[] randArr(int c){
-        int[] arr= new int[c];
-        for (int x=0; x<arr.length;x++){
-            arr[x]= (int)(Math.random()*10001);
+
+    public static int[] randArr(int count)
+    {
+        int[] arr = new int[count];
+        for (int i=0; i<count; i++)
+        {
+            arr[i] = (int)(Math.random()*10001);
         }
         return arr;
     }
@@ -38,5 +38,26 @@ public class bubbleSort {
         bubbleSort(randArr(4));
         time=System.nanoTime()-time;
         System.out.println("Time taken: " + time);
+    }
+
+    public static boolean isSorted(int[] arr){
+        for (int x:arr){
+            if (arr[x]>arr[x+1]){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean checkSum(int[]before, int[] after){
+        int s1= 0 ;
+        for (int x:before){
+            s1+=before[x];
+        }
+        int s2=0;
+        for (int x:after){
+            s1+=after[x];
+        }
+        return (s1==s2);
     }
 }
